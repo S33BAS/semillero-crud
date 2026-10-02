@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js"
@@ -13,8 +12,14 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "express": "^5.2.1",
     "morgan": "^1.12.1",
     "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "dotenv": "^18.0.5",
+    "prisma": "^7.10.0"
   }
 }

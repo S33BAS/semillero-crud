@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model tbl_colectivos {
+  fld_id       Int            @id
+  fld_nombre   String         @db.VarChar(50)
+  tbl_personas tbl_personas[]
+}
+
+model tbl_personas {
+  fld_id          Int            @id @default(autoincrement())
+  fld_nombre      String         @db.VarChar(50)
+  fld_apellido    String         @db.VarChar(50)
+  fld_fechanac    DateTime       @db.Date
+  fld_colectivoid Int
+  created_at      DateTime?      @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime?      @updatedAt @db.Timestamptz(6)
+  tbl_colectivos  tbl_colectivos @relation(fields: [fld_colectivoid], references: [fld_id], onDelete: NoAction, onUpdate: NoAction)
+}

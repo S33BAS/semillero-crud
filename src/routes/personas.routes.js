@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { pool } from "../conexion.js";
 import { getPersonas, getPersona, postPersona, putPersona, deletePersona } from "../controllers/personas.controllers.js";
 
 const router = Router();
